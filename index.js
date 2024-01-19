@@ -65,12 +65,11 @@ let init = async () => {
 };
 
 // // TODO: Create a function to write README file
-function writeToFile(`README.md`, data) {
-    
-}
+function writeToFile(responses) {
 
-// // TODO: Create a function to initialize app
-// function init() {}
+    console.log(`line 71 ` + generateMarkdown(responses));
+    fs.writeFile(`README.md`,JSON.stringify(generateMarkdown(responses)))
+}
 
 // Function call to initialize app
 init();
