@@ -1,11 +1,10 @@
 const generateMarkdown = require(`./utils/generateMarkdown`);
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { error } = require("console");
 
 let init = async () => {
 	try {
-		const responses= await inquirer.prompt([
+		const responses = await inquirer.prompt([
 			{
 				type: `input`,
 				message: `What is the title of your project?`,
@@ -36,12 +35,12 @@ let init = async () => {
 			// 	message: ``,
 			// 	name: `test`,
 			// },
-			// {
-			// 	type: `list`,
-			// 	message: `Select a license`,
-			// 	name: `license`,
-			// 	choices: ``,
-			// },
+			{
+				type: `list`,
+				message: `Select a license`,
+				name: `license`,
+				choices: [`MIT`, `something1`,`thing2`],
+			},
 			// {
 			// 	type: `input`,
 			// 	message: `Please put your GitHub username.`,
@@ -59,7 +58,7 @@ let init = async () => {
 			// },
 		]);
 		await console.log(responses);
-        await writeToFile(responses)
+		await writeToFile(responses);
 	} catch (error) {
 		console.log(error, `There was something wrong. IDK lol`);
 	}
@@ -67,12 +66,7 @@ let init = async () => {
 
 // // TODO: Create a function to write README file
 function writeToFile(responses) {
-
-    console.log(`line 70 ` + generateMarkdown(responses));
-    fs.writeFile(`README.md`,(generateMarkdown(responses)), (err) => {
-        error(err);
-    });
-    console.log(`line 72 ` + generateMarkdown(responses));
+	fs.writeFile(`README.md`, generateMarkdown(responses), (err) => err ? console.error(`Error ` + err) : console.log(`README.md has been successfully created!`));
 }
 
 // Function call to initialize app
