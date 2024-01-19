@@ -1,6 +1,7 @@
 const generateMarkdown = require(`./utils/generateMarkdown`);
 const inquirer = require("inquirer");
 const fs = require("fs");
+const { error } = require("console");
 
 let init = async () => {
 	try {
@@ -60,15 +61,18 @@ let init = async () => {
 		await console.log(responses);
         await writeToFile(responses)
 	} catch (error) {
-		console.log(`There was something wrong. IDK lol`);
+		console.log(error, `There was something wrong. IDK lol`);
 	}
 };
 
 // // TODO: Create a function to write README file
 function writeToFile(responses) {
 
-    console.log(`line 71 ` + generateMarkdown(responses));
-    fs.writeFile(`README.md`,JSON.stringify(generateMarkdown(responses)))
+    console.log(`line 70 ` + generateMarkdown(responses));
+    fs.writeFile(`README.md`,(generateMarkdown(responses)), (err) => {
+        error(err);
+    });
+    console.log(`line 72 ` + generateMarkdown(responses));
 }
 
 // Function call to initialize app
