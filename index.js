@@ -22,7 +22,7 @@ let init = async () => {
 			},
 			{
 				type: `input`,
-				message: `Provide instructions and examples for use.`,
+				message: `Provide instructions and examples for usage.`,
 				name: `usage`,
 			},
 			{
@@ -43,7 +43,7 @@ let init = async () => {
 			},
 			{
 				type: `input`,
-				message: `Please put your GitHub username.`,
+				message: `Please enter your GitHub username.`,
 				name: `github`,
 			},
 			{
@@ -57,7 +57,7 @@ let init = async () => {
 				name: `question`,
 			},
 		]);
-		await console.log(responses);
+		
 		await writeToFile(responses);
 	} catch (error) {
 		console.log(error, `There was something wrong. IDK lol`);

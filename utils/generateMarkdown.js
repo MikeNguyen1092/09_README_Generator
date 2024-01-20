@@ -37,7 +37,6 @@ function renderLicenseLink(license) {
 }
 
 function generateMarkdown(data) {
-	console.log("gMark like 15 " + data.title);
 	return `# ${data.title}
 ${renderLicenseBadge(data.license)}
 
@@ -81,7 +80,7 @@ ${renderLicenseBadge(data.license)}
 
 ## Tests
 
-	Testing: ${data.test}
+	${data.test}
 
 ## Contact 
 	GitHub username: ${data.github}
