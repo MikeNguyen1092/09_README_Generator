@@ -1,3 +1,4 @@
+// Get license badge based on what the user picks
 let renderLicenseBadge = (license) => {
 	if (license !== `None`) {
 		switch (license) {
@@ -16,7 +17,7 @@ let renderLicenseBadge = (license) => {
 	}
 	return ` `;
 };
-
+// Put a link to the license page in the license section of the README file
 function renderLicenseLink(license) {
 	if (license !== `None`) {
 		switch (license) {
@@ -35,7 +36,7 @@ function renderLicenseLink(license) {
 	}
 	return ` `;
 }
-
+// Generate the README based on the data from the user
 function generateMarkdown(data) {
 	return `# ${data.title}
 ${renderLicenseBadge(data.license)}
@@ -69,7 +70,7 @@ ${renderLicenseBadge(data.license)}
 
 ## License
 
-	${renderLicenseLink(data.license)}
+${renderLicenseLink(data.license)}
 
 ---
 

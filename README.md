@@ -9,7 +9,9 @@
 	Install `npm i inquirer@8.2.4`. 
 
 ## Usage
-	Run `node index.js`, answer a couple questions and the README file will be filled out. 
+
+	Run 'node index.js', answer a couple questions and the README file will be filled out. Follow the video link to see it in action -[Video](https://drive.google.com/file/d/1CHBFdP7Aj5uwFCnTGiz88tSYFXRpXjoh/view)
+
 
 
 ## Credits

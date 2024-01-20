@@ -1,9 +1,12 @@
+//========== Global Variables ==========//
 const generateMarkdown = require(`./utils/generateMarkdown`);
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+//=== Initial function ===//
 let init = async () => {
 	try {
+		// use inquirer to get the key-value pairs
 		const responses = await inquirer.prompt([
 			{
 				type: `input`,
@@ -57,14 +60,17 @@ let init = async () => {
 				name: `question`,
 			},
 		]);
-		
+		// run this function when the responses are done. 
 		await writeToFile(responses);
 	} catch (error) {
-		console.log(error, `There was something wrong. IDK lol`);
+		console.log(error, `Error`);
 	}
 };
+// END
 
+//=== Generate file based on user inputs ===//
 function writeToFile(responses) {
+	// make file Test-README.md if there isn't one. Pass on user responses to generateMarkdown()
 	fs.writeFile(`Test-README.md`, generateMarkdown(responses), (err) => err ? console.error(`Error ` + err) : console.log(`README.md has been successfully created!`));
 }
 
